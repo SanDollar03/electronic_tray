@@ -24,7 +24,7 @@ electronic_tray/                     ← プロジェクトのルート
 
 python -m venv electronic_tray
 cd electronic_tray
-. Scripts/activate       # mac/linux は source bin/activate
+.\Scripts\activate       # mac/linux は source bin/activate
 
 pip install flask==3.0.3 werkzeug email-validator
 pip freeze > requirements.txt
