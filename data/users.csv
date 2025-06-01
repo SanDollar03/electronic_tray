@@ -1,0 +1,5 @@
+id,email,display_name,pw_hash
+fbc21237-bb76-43c4-adb5-99cbd5ba3f1b,akira_takasugi@mail.toyota.co.jp,高杉旭,229db2ef9d1be817e3f88ddec485d4933d0529851412542478ba2d8ec080a090
+7d9da1bf-b590-4936-a4cc-ac09108024d7,denki_yamada@mail.toyota.co.jp,山田電機,8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92
+f8dd0919-c0d2-41b5-a6df-85911fd4b839,denki_kojima@mail.toyota.co.jp,小島電気,8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92
+475c7df8-7e42-4108-89ce-c1e0c217b9e6,denki_yodobashi@mail.toyota.co.jp,淀橋電気,8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92

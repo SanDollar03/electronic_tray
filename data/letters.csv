@@ -1,0 +1,4 @@
+id,title,sender_id,assignee_ids,current_index,status,created_at
+aee19c1e-a611-481d-b72a-d15028689019,さんちゃんは可愛い,fbc21237-bb76-43c4-adb5-99cbd5ba3f1b,fbc21237-bb76-43c4-adb5-99cbd5ba3f1b,0,finished,2025-05-31T22:38:50.431587
+b016f1cc-ecb1-4b73-9659-e38b4d364487,電子トレイテスト1,fbc21237-bb76-43c4-adb5-99cbd5ba3f1b,"7d9da1bf-b590-4936-a4cc-ac09108024d7,475c7df8-7e42-4108-89ce-c1e0c217b9e6,f8dd0919-c0d2-41b5-a6df-85911fd4b839",0,in_progress,2025-06-01T14:12:18.257921
+8bd2b6d6-2f26-4cbb-add8-3c7179f95abd,電子トレーテスト2,fbc21237-bb76-43c4-adb5-99cbd5ba3f1b,"7d9da1bf-b590-4936-a4cc-ac09108024d7,f8dd0919-c0d2-41b5-a6df-85911fd4b839,475c7df8-7e42-4108-89ce-c1e0c217b9e6",0,in_progress,2025-06-01T15:06:34.952433
