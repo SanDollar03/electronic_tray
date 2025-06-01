@@ -20,3 +20,14 @@ electronic_tray/                     ← プロジェクトのルート
     │   └── main.css                 ← 共通スタイル
     └── js/
         └── main.js                  ← 担当者 & 添付ファイル操作用 JS
+
+
+python -m venv electronic_tray
+cd electronic_tray
+. Scripts/activate       # mac/linux は source bin/activate
+
+pip install flask==3.0.3 werkzeug email-validator
+pip freeze > requirements.txt
+
+python app.py
+# ブラウザで http://localhost:5100
