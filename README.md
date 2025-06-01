@@ -28,6 +28,3 @@ cd electronic_tray
 
 pip install flask==3.0.3 werkzeug email-validator
 pip freeze > requirements.txt
-
-python app.py
-# ブラウザで http://localhost:5100
