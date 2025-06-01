@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block title %}文書新規作成 | 電子トレー{% endblock %}
+
+{% block content %}
+<h2>文書新規作成</h2>
+
+<form method="post" enctype="multipart/form-data" class="card" style="max-width:700px">
+
+    <!-- タイトル -->
+    <label class="block">
+        タイトル（20 文字以内）
+        <input type="text" name="title" maxlength="20" required placeholder="件名">
+    </label>
+
+    <!-- 担当者検索＋追加 -->
+    <label class="block">
+        担当者（順番に最大 10 名）
+        <div class="flex gap" style="align-items:center;margin-bottom:.6rem">
+            <input type="text" id="assigneeInput" list="userSuggestions" placeholder="担当者を検索…"
+                style="flex:1;padding:.5rem">
+            <button type="button" id="addAssigneeBtn" class="btn primary">追加</button>
+        </div>
+        <datalist id="userSuggestions">
+            {% for u in users %}
+            <option value="{{ u.display_name }} ({{ u.email }})"></option>
+            {% endfor %}
+        </datalist>
+
+        <!-- 選択済み担当者 -->
+        <ol id="selectedAssignees" class="card"
+            style="min-height:10rem;list-style:decimal;padding-left:1.4rem;margin:0;"></ol>
+
+        <span class="small">Enter か 追加ボタンで登録 / ✕ で削除</span>
+
+        <!-- hidden (担当者) -->
+        <select id="assigneeHidden" name="assignees" multiple required hidden></select>
+    </label>
+
+    <!-- 添付ファイル -->
+    <label class="block">
+        添付ファイル（最大 10 件）
+        <input type="file" id="fileInput" name="files" multiple style="margin-bottom:.6rem">
+        <ul id="fileList" class="card" style="min-height:8rem;list-style:none;padding-left:1rem;margin:0;"></ul>
+        <span class="small">✕ で添付をキャンセル</span>
+    </label>
+
+    <div class="flex gap">
+        <button class="btn primary">発行</button>
+        <a href="{{ url_for('letters') }}" class="btn">キャンセル</a>
+    </div>
+</form>
+
+<!-- ユーザー配列を JS へ（safe を忘れずに） -->
+<script>
+    const userMap = {{ users| tojson | safe }};
+</script>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+{% endblock %}

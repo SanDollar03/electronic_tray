@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}電子トレー{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+
+<body>
+    <header>
+        <h1>電子トレー</h1>
+        {% if session.get('uid') %}
+        <a href="{{ url_for('letters') }}">文書一覧</a> |
+        <a href="{{ url_for('letter_new') }}">新規作成</a> |
+        <a href="{{ url_for('logout') }}">ログアウト</a>
+        {% endif %}
+    </header>
+    <main>{% with messages = get_flashed_messages() %}
+        {% if messages %}<ul id="flash">{% for m in messages %}<li>{{ m }}</li>{% endfor %}</ul>{% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+    </main>
+</body>
+
+</html>

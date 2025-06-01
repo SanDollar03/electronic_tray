@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}新規登録 | 電子トレー{% endblock %}
+
+{% block content %}
+<section class="card center">
+    <h2>ユーザー新規登録</h2>
+
+    <form method="post" class="form-vertical">
+        <label>
+            表示名（スペース無し）
+            <input type="text" name="name" required pattern="^\S+$" placeholder="山田太郎">
+        </label>
+
+        <label>
+            メールアドレス
+            <input type="email" name="email" required placeholder="user@example.com">
+        </label>
+
+        <label>
+            パスワード
+            <input type="password" name="pw1" required minlength="6" placeholder="Password">
+        </label>
+
+        <label>
+            パスワード（確認）
+            <input type="password" name="pw2" required minlength="6" placeholder="Repeat Password">
+        </label>
+
+        <button class="btn primary">登録</button>
+    </form>
+
+    <p class="small">
+        既にアカウントをお持ちの場合は
+        <a href="{{ url_for('login') }}">ログイン</a> してください。
+    </p>
+</section>
+{% endblock %}

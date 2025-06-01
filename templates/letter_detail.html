@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %}文書詳細 | 電子トレー{% endblock %}
+
+{% block content %}
+<article class="card wide">
+    <header>
+        <h2>{{ letter.title }}</h2>
+        <p class="sub">
+            発行者: {{ letter.sender_id }} ／
+            状態: {{ "完了" if letter.status == "finished" else "回覧中" }}
+        </p>
+    </header>
+
+    <section>
+        <h3>担当ルート</h3>
+        <ol class="assignees">
+            {% for a in assignees %}
+            <li {% if loop.index0==cur_idx %}class="current" {% endif %}>
+                {{ a }}
+                {% if loop.index0 == cur_idx %}
+                <span class="badge">現在</span>
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ol>
+
+        {% if uid == assignees[cur_idx] and letter.status == "in_progress" %}
+        <form method="post" action="{{ url_for('letter_advance', lid=letter.id) }}">
+            <button class="btn success">次の担当者へ回す</button>
+        </form>
+        {% endif %}
+    </section>
+
+    <section>
+        <h3>添付ファイル</h3>
+        <ul class="attachments">
+            {% for f in files %}
+            <li>
+                <a href="{{ url_for('download_file', lid=letter.id, stored_name=f.stored_name) }}">
+                    {{ f.orig_name }}
+                </a>
+            </li>
+            {% else %}
+            <li class="muted">添付ファイルはありません。</li>
+            {% endfor %}
+        </ul>
+    </section>
+
+    <footer>
+        <a class="btn" href="{{ url_for('letters') }}">&lt; 戻る</a>
+    </footer>
+</article>
+{% endblock %}

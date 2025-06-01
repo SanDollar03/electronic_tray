@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block title %}文書一覧 | 電子トレー{% endblock %}
+
+{% block content %}
+<h2>文書一覧</h2>
+
+<nav class="toolbar">
+    <a class="btn primary" href="{{ url_for('letter_new') }}">＋ 新規文書</a>
+</nav>
+
+<h3>◆ 発行した文書</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>タイトル</th>
+            <th>現在の担当者</th>
+            <th>状態</th>
+            <th>作成日</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for l in sent %}
+        <tr>
+            <td>{{ l.id[:8] }}</td>
+            <td><a href="{{ url_for('letter_detail', lid=l.id) }}">{{ l.title }}</a></td>
+            <td>{{ l.current_display }}</td>
+            <td>{{ "完了" if l.status == "finished" else "回覧中" }}</td>
+            <td>{{ l.created_at[:10] }}</td>
+        </tr>
+        {% else %}
+        <tr>
+            <td colspan="5" class="muted">発行した文書はありません。</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<h3>◆ 自分が担当に含まれる文書</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>タイトル</th>
+            <th>現在の担当者</th>
+            <th>状態</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for l in inbox %}
+        <tr {% if l.current_uid !=uid %}class="inactive" {% endif %}>
+            <td>{{ l.id[:8] }}</td>
+            <td><a href="{{ url_for('letter_detail', lid=l.id) }}">{{ l.title }}</a></td>
+            <td>{{ l.current_display }}</td>
+            <td>{{ "完了" if l.status == "finished" else "回覧中" }}</td>
+        </tr>
+        {% else %}
+        <tr>
+            <td colspan="4" class="muted">担当文書はありません。</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

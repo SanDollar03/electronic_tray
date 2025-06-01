@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}ログイン | 電子トレー{% endblock %}
+
+{% block content %}
+<section class="card center">
+    <h2>ログイン</h2>
+
+    <form method="post" class="form-vertical">
+        <label>
+            メールアドレス
+            <input type="email" name="email" required placeholder="user@example.com">
+        </label>
+
+        <label>
+            パスワード
+            <input type="password" name="pw" required placeholder="Password">
+        </label>
+
+        <button class="btn primary">ログイン</button>
+    </form>
+
+    <p class="small">
+        アカウントをお持ちでない場合は
+        <a href="{{ url_for('register') }}">新規登録</a> してください。
+    </p>
+</section>
+{% endblock %}
