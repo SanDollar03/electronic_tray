@@ -1,25 +1,25 @@
-electronic_tray/                     ← プロジェクトのルート
-├── app.py                           ← Flask 本体（最新版）
-├── requirements.txt                 ← ライブラリ一覧
+electronic_tray/                     
+├── app.py                           ← Flask
+├── requirements.txt                 ← ライブラリ一
 │
-├── data/                            ← すべて CSV & 添付を格納
-│   ├── users.csv                    ← ユーザー情報（ヘッダーのみ可）
-│   ├── letters.csv                  ← 文書メタ情報（ヘッダーのみ可）
-│   └── attachments/                 ← 実ファイル保存用（文書ごとにサブフォルダ）
+├── data/                            
+│   ├── users.csv                    ← ユーザー情報
+│   ├── letters.csv                  ← 文書メタ情報
+│   └── attachments/                 ← ファイル保存用
 │
-├── templates/                       ← 画面テンプレート
-│   ├── base.html                    ← 共通レイアウト
-│   ├── login.html                   ← ログイン画面
-│   ├── register.html                ← 新規登録画面
+├── templates/                       ← 
+│   ├── base.html                    ← 共通
+│   ├── login.html                   ← ログイン
+│   ├── register.html                ← 新規登録
 │   ├── letters.html                 ← 文書一覧
-│   ├── letter_new.html              ← 文書新規作成（検索＋添付 UI 付き）
+│   ├── letter_new.html              ← 文書新規作成
 │   └── letter_detail.html           ← 文書詳細
 │
 └── static/
     ├── css/
-    │   └── main.css                 ← 共通スタイル
+    │   └── main.css                 
     └── js/
-        └── main.js                  ← 担当者 & 添付ファイル操作用 JS
+        └── main.js                  
 
 
 python -m venv electronic_tray
